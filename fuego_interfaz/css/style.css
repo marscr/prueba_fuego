@@ -1,6 +1,23 @@
 *{
   margin: 0 auto;
+  font-family: 'Roboto Mono', monospace;
 }
 body{
-  background-color: rgb(213, 213, 214);
+  /*background-color: #bfc0c6;*/
+}
+header{
+  border-bottom: 1px solid #212121;
+  padding: 1em 0 1em 0;
+  text-align: center;
+  background-color: #ff3d00;
+  color:#ffffff;
+  font-size: 1em;
+}
+main{
+  width: 90%;
+
+  padding: 1em;
+}
+main  p{
+  margin-bottom: 1em;
 }

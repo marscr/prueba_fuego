@@ -21,3 +21,23 @@ main{
 main  p{
   margin-bottom: 1em;
 }
+/************************************************************
+    IDS
+/*************************************************************/
+#advertencia{
+  text-align: center;
+  padding: 1em;
+  background-color: #cc3535;
+  font-size: 1em;
+  color:#ffffff;
+}
+
+/*/////////Clases /////////////////////////////*/
+.bold{
+  font-weight: bold;
+}
+.caja{
+  padding: 1em;
+  border: 1px solid #252526;
+  border-radius: 10px;
+}

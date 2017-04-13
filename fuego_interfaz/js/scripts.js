@@ -17,7 +17,6 @@ function $(element){
   return document.querySelector(element);
 }//Fin función $ para seleccionar elementos del DOM
 
-
 /*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
                                                                               Función que inicia
@@ -49,9 +48,23 @@ function menu_events(){
   var menuBtns=['#inicioBtn','#ej1','#ej2','#expl'];
   //ciclo que recorre el arreglo del menú
   for(var i=0;i<menuBtns.length;i++){
-      $(menuBtns[i]).addEventListener("click", function(){
-        mensaje(this.innerHTML);
-    });
+    $(menuBtns[i]).addEventListener('click', function(){
+      var auxiliar=0;
+      switch(this.id){
+        case 'inicioBtn':
+          auxiliar='content/inicio.html';
+        break;
+        case 'ej1':
+          auxiliar='content/ej1.html';
+        break;
+        default:
+          mensaje(this.innerHTML);
+        break;
+      }//fin switch
+      if(auxiliar!=0){
+        loadHTML('main',auxiliar.toString());
+      }
+    });//Agrega la función
   }
 }//Fin función menu_events
 
@@ -70,7 +83,7 @@ function loadHTML(element,dir){
   }
   else {
     // code for IE6, IE5
-    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    xmlhttp = new ActiveXObject('Microsoft.XMLHTTP');
   }
   xmlhttp.onreadystatechange = function() {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {

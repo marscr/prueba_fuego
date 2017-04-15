@@ -37,6 +37,14 @@ function mensaje(msj){
   console.log(msj);
 }//Fin función mensaje
 ///////////////////////////////////////////////////////////////////ELIMINAR **************************************************************************
+/*////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                                    Función para agregar eventos
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+function addEvents(element,type, func){
+  $(element).addEventListener(type,func);
+}
+
+
 
 /*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -47,8 +55,9 @@ function mensaje(msj){
 function menu_events(){
   var menuBtns=['#inicioBtn','#ej1','#ej2','#expl'];
   //ciclo que recorre el arreglo del menú
+  var evento='';
   for(var i=0;i<menuBtns.length;i++){
-    $(menuBtns[i]).addEventListener('click', function(){
+    evento = function(){
       var auxiliar=0;
       switch(this.id){
         case 'inicioBtn':
@@ -56,6 +65,7 @@ function menu_events(){
         break;
         case 'ej1':
           auxiliar='content/ej1.html';
+          //cargar_ejemplo1();
         break;
         default:
           mensaje(this.innerHTML);
@@ -63,8 +73,10 @@ function menu_events(){
       }//fin switch
       if(auxiliar!=0){
         loadHTML('main',auxiliar.toString());
+        cargar_ejemplo1();
       }
-    });//Agrega la función
+    };//Agrega la función
+    addEvents(menuBtns[i],'click',evento);
   }
 }//Fin función menu_events
 
@@ -95,3 +107,17 @@ function loadHTML(element,dir){
   xmlhttp.open('GET',dir, true);
   xmlhttp.send();
 }
+
+/*///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+                                                                              Cargar Eventos de cada pagina
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*/////////////////////////////////////////////////////////////////////////
+                                Ejercicio 1
+/////////////////////////////////////////////////////////////////////////*/
+function   cargar_ejemplo1(){
+  //console.log($('#agergar'));
+  console.log("Elemento X: " + $('#lista'));
+  console.log("Formulario: " + $('form'));
+}//carga los eventos del ejercicio 1

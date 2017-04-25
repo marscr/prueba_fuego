@@ -72,8 +72,7 @@ function menu_events(){
         break;
       }//fin switch
       if(auxiliar!=0){
-        loadHTML('main',auxiliar.toString());
-        cargar_ejemplo1();
+        loadHTML('main',auxiliar.toString(),2);
       }
     };//Agrega la función
     addEvents(menuBtns[i],'click',evento);
@@ -86,7 +85,7 @@ function menu_events(){
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 ///////////////////////////////////////Funcion para cargar contenido de archivos//////////////////////////////////////////////////////////////////////////////////
-function loadHTML(element,dir){
+function loadHTML(element,dir,eventos){
   //Referencia: http://entredesarrolladores.com/4069/cargar-un-div-externo-con-ajax-sin-jquery
   var xmlhttp;
   if (window.XMLHttpRequest) {
@@ -100,8 +99,9 @@ function loadHTML(element,dir){
   xmlhttp.onreadystatechange = function() {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
         //$(element).innerHTML = xmlhttp.responseText;
-        deleteContent(element);
-        addContent(element,xmlhttp.responseText);
+        deleteContent(element);//Limpia contenido
+        addContent(element,xmlhttp.responseText);//Agrega contenido
+        cargar_eventos(eventos);//Carga eventos del contenido
     }
   }
   xmlhttp.open('GET',dir, true);
@@ -121,3 +121,16 @@ function   cargar_ejemplo1(){
   console.log("Elemento X: " + $('#lista'));
   console.log("Formulario: " + $('form'));
 }//carga los eventos del ejercicio 1
+/*//////////////////////////////////////////////////
+    Carga los eventos cuando se cargó el contenido ajax
+//////////////////////////////////////////////*/
+
+function cargar_eventos(eventos){
+  switch (eventos) {
+    case 2:
+      cargar_ejemplo1();
+    break;
+    default:
+    break;
+  }
+}

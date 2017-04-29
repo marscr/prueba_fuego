@@ -114,9 +114,20 @@ nav ul li a:hover {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////*/
 #lista{
   width: 95%;
-  border:1px solid #ff1d00;
+  border:3px solid #625654;
   padding: 1em;
 }
-#lista > input{
-  border:  0.5 px solid #2e322f;
+#lista  input{
+  border: none;
+  width: 5em;
+  border-bottom: solid 5px #c9c9c9;
+  transition: border 0.3s;
+  margin-left: 1em;
+}
+#lista ul{
+  padding: 1em;
+
+}
+#lista ul  ul{
+
 }

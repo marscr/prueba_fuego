@@ -121,7 +121,13 @@ function   cargar_ejemplo1(){
   console.log("Elemento X: " + $('#lista'));
   console.log("Formulario: " + $('form'));
   var a=function(){
-    addContent('#lista_inputs','<li><input type="text"></li>');
+    //addContent('#lista_inputs','<li><input type="text"></li>');//Se quitó porque borra el elemento
+    /////////////////////////////////Se debe optimizar a una función para que sirva de manera global
+    var elemento =  document.createElement("li")//Crea el elemento lista
+    elemento.innerHTML = '<input type="text">';///Le agrega el input
+    $('#lista_inputs').appendChild(elemento);//Lo agrega a la lista
+    ///////////////////
+
   };
   var b=function(){
     deletelast('#lista_inputs');

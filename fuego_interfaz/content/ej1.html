@@ -7,12 +7,13 @@
 
       <li>
         <ul class="menu" id="lista_inputs">
-          <li><input type="text"></li>
-          <li><input type="text"></li>
+          <li><input type="number"></li>
+          <li><input type="number"></li>
         </ul>
       </li>
       <li><a class="btn" href="#" id="agregar"> Agregar </a></li>
       <li><a class="btn" href="#" id="eliminar"> Eliminar </a></li>
+      <li><a class="btn" href="#" id="resolver"> Solución </a></li>
     </ul>
 
   </div>
@@ -22,13 +23,69 @@
 <hr>
 <p>
   <h4>Solución con ciclo for</h4>
-  <a class="btn" href="#" id="for"> Solución </a>
+  <div id="solucion-for"></div>
+  <pre class="codigo">
+    function sumafor(lista){
+      var resultado=0;
+        for( var i=0 ; i < lista.length ; i++ ){
+          resultado += lista[i];
+        }//fin del ciclo for que recorre la lista
+        return resultado;
+    }//fin sumafor
+  </pre>
 </p>
 <hr>
 <p>
   <h4>Solución con ciclo while</h4>
+
+  <div id="solucion-while"></div>
+  <pre class="codigo">
+    function sumawhile(lista){
+      var resultado=0,i=0;
+        while(i < lista.length){
+          resultado+=lista[i];
+          i++;
+        }
+        return resultado;
+    }fin sumawhile
+  </pre>
 </p>
 <hr>
 <p>
-  <h4>Solución con recursividad</h4>
+  <h4>Solución con recursividad 1</h4>
+  <div id="solucion-recur1"></div>
+  <pre class="codigo">
+    //////////////Suma Recursiva que deja intacta la lista
+    function sumarecursiva1(lista,i){
+      variable = lista[i];
+      if(i===lista.length-1){
+          //Condición de salida
+          return variable;
+      }
+      else{
+        //Llamada recursiva
+        return variable+(sumarecursiva1(lista,i+1));
+      }
+    }//fin sumarecursiva
+  </pre>
+<h4>Solución con recursividad 2</h4>
+  <div id="solucion-recur2"></div>
+
+  <pre class="codigo">
+    function sumarecursiva2(lista){
+      if(lista.length===0){
+        //Lista Vacía
+        return 0;
+      }
+      else if(lista.length===1){
+        //Condición de Salida
+        return lista[0];
+      }
+      else{
+        //Llamada Recursiva
+        lista[0]+=lista.pop();
+        return sumarecursiva2(lista);
+      }
+    }//fin sumarecursiva
+  </pre>
 </p>

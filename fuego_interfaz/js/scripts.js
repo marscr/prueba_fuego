@@ -33,7 +33,6 @@ function $(element){
   document.addEventListener('DOMContentLoaded', function () {
     menu_events();//Carga los eventos al menú
     loadHTML('main','content/inicio.html');//Carga por Default la pagina de inicio
-    loadHTML('#content','inicio.html');///////////////////Eliminar************************************************************************
   });   ///////////////Se ejecuta al cargar por completo el DOM
 })();//Fin función que se ejecuta automáticamente y contiene función que indica cuando cargó el DOM
 
@@ -90,7 +89,7 @@ function menu_events(){
 function loadHTML(element,dir,eventos){
   //Referencia: http://entredesarrolladores.com/4069/cargar-un-div-externo-con-ajax-sin-jquery
   var xmlhttp;
-  if (window.XMLHttpRequest) {
+   if (window.XMLHttpRequest) {
     // code for IE7+, Firefox, Chrome, Opera, Safari
     xmlhttp = new XMLHttpRequest();
   }
@@ -120,25 +119,33 @@ function   cargar_ejemplo1(){
   //console.log($('#agergar'));
   console.log("Elemento X: " + $('#lista'));
   console.log("Formulario: " + $('form'));
-  var a=function(){
+  var agregar_final=function(){
     //addContent('#lista_inputs','<li><input type="text"></li>');//Se quitó porque borra el elemento
     /////////////////////////////////Se debe optimizar a una función para que sirva de manera global
     var elemento =  document.createElement("li")//Crea el elemento lista
-    elemento.innerHTML = '<input type="text">';///Le agrega el input
+    elemento.innerHTML = '<input type="number">';///Le agrega el input
     $('#lista_inputs').appendChild(elemento);//Lo agrega a la lista
     ///////////////////
 
   };
-  var b=function(){
+  var eliminar_ultimo=function(){
     deletelast('#lista_inputs');
   };
-  var c=function(){
-    console.log('Arreglo: ');
-    console.log(cargar_lista_array('#lista_inputs'));
+  var resolver=function(){
+    var lista=cargar_lista_array('#lista_inputs');//Carga la lista desde la interfaz
+    deleteContent('#solucion-for');
+    addContent('#solucion-for',"Resultado For: "+sumafor(lista));//Agrega la solución con For
+    deleteContent('#solucion-while');
+    addContent('#solucion-while',"Resultado While: "+sumawhile(lista));//Agrega la Solución con While
+    deleteContent('#solucion-recur1');
+    addContent('#solucion-recur1','Resultado Recursivo 1: '+sumarecursiva1(lista,0));//Agrega la Solución Recursiva que no destruye la lista
+    deleteContent('#solucion-recur2');
+    addContent('#solucion-recur2','Resultado Recursivo 2: '+sumarecursiva2(lista));//Agrega la Solución Recursiva que destruye la lista
+
   };
-  addEvents('#agregar','click',a);
-  addEvents('#eliminar','click',b);
-  addEvents('#for','click',c);
+  addEvents('#agregar','click',agregar_final);
+  addEvents('#eliminar','click',eliminar_ultimo);
+  addEvents('#resolver','click',resolver);
 }//carga los eventos del ejercicio 1
 /*//////////////////////////////////////////////////
     Carga los eventos cuando se cargó el contenido ajax
@@ -153,13 +160,12 @@ function cargar_eventos(eventos){
   }
 }
 
-
 function cargar_lista_array(element){
   var element=$(element);
   var col=element.getElementsByTagName('input' );
   var arreglo=[];
   for(i=0;i<col.length;i++){
-    arreglo.push(col[i].value);
+    arreglo.push(parseInt(col[i].value));
   }
   return arreglo;
 }

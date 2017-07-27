@@ -32,8 +32,14 @@ main  p{
   border-radius: 10px;
 
 }
+.codigo{
+  background:#282828;
+  color:white;
+  border: 1px solid #171717;
+}
 .btn{
-  padding: 2em;
+  margin: 1em;
+  padding:0.5em;
   border:1px solid #494949;
   border-radius: 5px;
   text-decoration: none;
@@ -55,7 +61,7 @@ header h1{
   font-size: 3em;
 }
 
-#content{
+.content{
   margin: 1em auto;
   padding:1em;
   width: 95%;

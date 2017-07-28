@@ -174,7 +174,21 @@ function resolver2(){
   //Carga la lista desde la interfaz
   var lista1=cargar_lista_array('#lista1');
   var lista2=cargar_lista_array('#lista2');
-  console.log(problema2Interfaz(lista1,lista2));//Eliminar
+  //console.log(problema2Interfaz(lista1,lista2));//Imprime en consola para confirmar  ELIMINAR***********
+  estiloLista('#resultado2',lista1,lista2);//Función que agreag con estilo de lista
+}
+//Función que agrega la lista al elemento dando estilo
+function estiloLista(elemento,lista1,lista2){
+  deleteContent(elemento);
+  var listaResultado=problema2Interfaz(lista1,lista2);
+  console.log("Imprime la lista: "+listaResultado);
+  addContent(elemento,"<li> [ </li>")
+  for(var i=0;i<listaResultado.length;i++){
+    console.log(listaResultado[i]);
+    addContent(elemento,"<li> "+listaResultado[i]+" </li>")
+  }
+  addContent(elemento,"<li> ] </li>")
+  //addContent(elemento,);
 }
 /*//////////////////////////////////////////////////
     Carga los eventos cuando se cargó el contenido ajax

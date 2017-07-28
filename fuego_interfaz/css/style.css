@@ -22,6 +22,7 @@ main  p{
   color:#ffffff;
 }
 
+
 /*/////////Clases /////////////////////////////*/
 .bold{
   font-weight: bold;
@@ -145,7 +146,10 @@ nav ul li a:hover {
   border: 1px solid #262420;
   padding: 1em;
 }
-#respuesta2>p{
+#resultado2{
+  text-align: center;
   padding: 1em;
-  background: #684ec9;
+  background: #002461;
+  color: #fafafa;
+  text-decoration: none;
 }

@@ -1,0 +1,73 @@
+<p>
+  <h3>Problema 2:</h3>
+  Escriba una función que combine dos listas, alternando cada elemento.
+  <div id="listas">
+    <ul class="menu">
+      <li class="left"><h3>Lista 1:</h3></li>
+      <li>
+        <ul class="menu" id="lista1">
+          <li><input type="text" value="a"></li>
+          <li><input type="text" value="b"></li>
+          <li><input type="text" value="c"></li>
+        </ul>
+      </li>
+      <li><a class="btn" href="#" id="agregar1"> Agregar </a></li>
+      <li><a class="btn" href="#" id="eliminar1"> Eliminar </a></li>
+      <h3>Lista 2:</h3>
+      <li>
+        <ul class="menu" id="lista2">
+          <li><input type="text" value="1"></li>
+          <li><input type="text" value="2"></li>
+          <li><input type="text" value="3"></li>
+        </ul>
+      </li>
+      <li><a class="btn" href="#" id="agregar2"> Agregar </a></li>
+      <li><a class="btn" href="#" id="eliminar2"> Eliminar </a></li>
+      <li>
+        <div id="respuesta2">
+          <p>
+
+          </p>
+          <a class="btn" href="#" id="resolver_ej2"> Solución </a>
+        </div>
+      </li>
+    </ul>
+
+  </div>
+
+  <!-- Lista con un solo input o con varios input -->
+</p>
+<hr>
+<p>
+  <h4>Función que une las listas</h4>
+  <div id="solucion-ej2"></div>
+  <pre class="codigo">
+    function unir_listas(lista1,lista2,largo){
+      var resultado = [];
+      for(var i = 0 ; i < largo ; i++){
+        if(i < lista1.length){
+          resultado.push(lista1[i]);
+        }
+        if(i < lista2.length){
+          resultado.push(lista2[i]);
+        }
+      }//ficlo que recorre las listas
+      return resultado;
+    }
+  </pre>
+</p>
+<p>
+  <h4>Función Auxiliar</h4>
+  Esta función devuelve el largo de la lista más larga ya que esta va a marcar la cantidad de repeticiones
+  <pre class="codigo">
+    function largo_listas(lista1,lista2){
+      if(lista1.length >= lista2.length){
+        return lista1.length;
+      }//si la primera tiene más elementos o son iguales
+      else{
+        return lista2.length;
+      }// si la segunda tiene más elementos
+        return 0;
+      }
+  </pre>
+</p>

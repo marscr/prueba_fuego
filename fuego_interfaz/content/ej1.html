@@ -3,12 +3,10 @@
   Escriba tres  funciones que sumen todos los números de la siguiente lista:
   <div id="lista">
     <h3>Lista:</h3>
-    <ul class="menu">
-
-      <li>
+    <ul class="menu"><li>
         <ul class="menu" id="lista_inputs">
-          <li><input type="number"></li>
-          <li><input type="number"></li>
+          <li><input type="text" value="15"></li>
+          <li><input type="text" value="20"></li>
         </ul>
       </li>
       <li><a class="btn" href="#" id="agregar"> Agregar </a></li>
@@ -52,40 +50,23 @@
 </p>
 <hr>
 <p>
-  <h4>Solución con recursividad 1</h4>
-  <div id="solucion-recur1"></div>
+  <h4>Solución con recursividad</h4>
+  <div id="solucion-recur"></div>
   <pre class="codigo">
-    //////////////Suma Recursiva que deja intacta la lista
-    function sumarecursiva1(lista,i){
-      variable = lista[i];
-      if(i===lista.length-1){
-          //Condición de salida
-          return variable;
-      }
-      else{
-        //Llamada recursiva
-        return variable+(sumarecursiva1(lista,i+1));
-      }
-    }//fin sumarecursiva
-  </pre>
-<h4>Solución con recursividad 2</h4>
-  <div id="solucion-recur2"></div>
-
-  <pre class="codigo">
-    function sumarecursiva2(lista){
-      if(lista.length===0){
-        //Lista Vacía
+    function sumarecursiva(lista,largo){
+      var resultado=0;
+      if(largo==0){
         return 0;
       }
-      else if(lista.length===1){
-        //Condición de Salida
-        return lista[0];
+      largo -= 1;
+      if(lista.length < 1){
+        return parseInt(lista[0]);
       }
       else{
-        //Llamada Recursiva
-        lista[0]+=lista.pop();
-        return sumarecursiva2(lista);
-      }
+            resultado = parseInt(lista[largo]) + sumarecursiva(lista,largo);
+        }
+        return resultado;
     }//fin sumarecursiva
   </pre>
+
 </p>

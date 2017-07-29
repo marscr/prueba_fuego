@@ -46,7 +46,8 @@ function menu_events(){
   var evento='',opcion=0;
   //Ciclo que recorre el arreglo con los botones y carga las funciones de cada uno
   for(var i=0;i<menuBtns.length;i++){
-    evento = function(){
+    evento = function(event){
+      event.preventDefault();
       var auxiliar=0;
       switch(this.id){
         case 'inicioBtn':
@@ -114,13 +115,16 @@ function eliminarLista(listaDOM){
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function   cargar_ejemplo1(){
   //Variables con funciones para agregar eventos
-  var agregar_final=function(){
-        agregarLista('#lista_inputs');
-    };//Fin Agregar al final
-  var eliminar_ultimo=function(){
-      eliminarLista('#lista_inputs');
+  var agregar_final=function(event){
+    event.preventDefault();
+    agregarLista('#lista_inputs');
+  };//Fin Agregar al final
+  var eliminar_ultimo=function(event){
+    event.preventDefault();
+    eliminarLista('#lista_inputs');
   };//Fin eliminar_ultimo
-  var resolver=function(){
+  var resolver=function(event){
+    event.preventDefault();
     resolver1();
   };
   //Agrega los eventos a los botones de la lista
@@ -145,24 +149,30 @@ function resolver1(){
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function   cargar_ejemplo2(){
   //Variables para ejecutar funciones desde el EventsListener
-  var agregarLista1=function(){
-        agregarLista('#lista1');
-    };//Fin Agregar al final
-  var eliminarLista1=function(){
-      eliminarLista('#lista1');
+  var agregarLista1=function(event){
+    event.preventDefault();
+    agregarLista('#lista1');
+  };//Fin Agregar al final
+  var eliminarLista1=function(event){
+    event.preventDefault();
+    eliminarLista('#lista1');
   };//Fin eliminar_ultimo
-  var agregarLista2=function(){
-        agregarLista('#lista2');
-    };//Fin Agregar al final
-  var eliminarLista2=function(){
-      eliminarLista('#lista2');
+  var agregarLista2=function(event){
+    event.preventDefault();
+    agregarLista('#lista2');
+  };//Fin Agregar al final
+  var eliminarLista2=function(event){
+    event.preventDefault();
+    eliminarLista('#lista2');
   };//Fin eliminar_ultimo
-  var resolver=function(){
+  var resolver=function(event){
+    event.preventDefault();
     resolver2();
   };
   ////////////////////Agrega los eventos a los botones
   //Lista1
   addEvents('#agregar1','click',agregarLista1);
+
   addEvents('#eliminar1','click',eliminarLista1);
   //Lista2
   addEvents('#agregar2','click',agregarLista2);

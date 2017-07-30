@@ -43,7 +43,7 @@ function menu_events(){
   //Arreglo  con los botones del menú
   var menuBtns=['#inicioBtn','#ej1','#ej2','#expl'];
   //ciclo que recorre el arreglo del menú
-  var evento='',opcion=0;
+  var evento='',opcion=0,eventos=0;
   //Ciclo que recorre el arreglo con los botones y carga las funciones de cada uno
   for(var i=0;i<menuBtns.length;i++){
     evento = function(event){
@@ -52,6 +52,7 @@ function menu_events(){
       switch(this.id){
         case 'inicioBtn':
           auxiliar='content/inicio.html';
+          opcion=1;
         break;
         case 'ej1':
           auxiliar='content/ej1.html';

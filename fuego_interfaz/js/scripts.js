@@ -41,7 +41,7 @@ function addEvents(element,type, func){
 ///////////////////////////////////////////////////////////Función que agrega eventos a los botones del menú/////////////////////////////////////////////////////////////////////////////
 function menu_events(){
   //Arreglo  con los botones del menú
-  var menuBtns=['#inicioBtn','#ej1','#ej2','#expl'];
+  var menuBtns=['#inicioBtn','#ej1','#ej2'];
   //ciclo que recorre el arreglo del menú
   var evento='',opcion=0,eventos=0;
   //Ciclo que recorre el arreglo con los botones y carga las funciones de cada uno
@@ -192,10 +192,10 @@ function resolver2(){
 function estiloLista(elemento,lista1,lista2){
   deleteContent(elemento);
   var listaResultado=problema2Interfaz(lista1,lista2);
-  console.log("Imprime la lista: "+listaResultado);
+  //console.log("Imprime la lista: "+listaResultado);
   addContent(elemento,"<li> [ </li>")
   for(var i=0;i<listaResultado.length;i++){
-    console.log(listaResultado[i]);
+    //console.log(listaResultado[i]);
     addContent(elemento,"<li> "+listaResultado[i]+" </li>")
   }
   addContent(elemento,"<li> ] </li>")

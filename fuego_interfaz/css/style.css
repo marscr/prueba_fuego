@@ -49,7 +49,16 @@ main  p{
   background: #1372e2;
 }
 .btn:hover{
-
+  /*Degradado de fondo*/
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#74eeff), to( #008cf1));/*Chrome y Safari*/
+  background-image: -moz-linear-gradient(top center, #74eeff, #008cf1);/*Firefox*/
+  background-image: -o-linear-gradient(top, #74eeff, #008cf1);/*Opera*/
+  background-image: linear-gradient(top, #74eeff, #008cf1);/*Estandar por defecto*/
+  /*Sombras*/
+  -webkit-box-shadow:  1px -1px 0px #999;/*Chrome y Safari*/
+  -moz-box-shadow:  1px -1px 0px #999;/*Firefox*/
+  -o-box-shadow:  1px -1px 0px #999;/*Opera*/
+  box-shadow:  1px -1px 0px #999;/*Estandar por defecto*/
 }
 body{
   background-color: rgb(255, 255, 255);
@@ -73,6 +82,11 @@ nav{
   width: 100%;
   background-color: rgb(51, 48, 50);
 }
+.explicacion{
+  background-color: rgba(15, 134, 201, 0.71);
+  color:#070e17;
+
+}
 .menu{
     list-style:none;
     margin:0;
@@ -88,6 +102,9 @@ nav{
 }
 .left{
   text-align: left;
+}
+.center{
+  text-align: center;
 }
 /* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                             NAV
@@ -152,4 +169,10 @@ nav ul li a:hover {
   background: #002461;
   color: #fafafa;
   text-decoration: none;
+}
+
+#resultado2 > li{
+  padding:1em;
+  background-color: rgba(0, 156, 255, 0.26);
+  margin-right: 5px;
 }
